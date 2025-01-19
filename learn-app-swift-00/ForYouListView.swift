@@ -152,6 +152,12 @@ fileprivate class ForYouListLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        for attribute in layoutAttributes {
+            if attribute.frame.size.width == 50.0 {
+                print("WTF")
+                break
+            }
+        }
         return layoutAttributes.filter { $0.frame.intersects(rect) }
     }
     
@@ -190,7 +196,9 @@ fileprivate class ForYouCell: UICollectionViewCell {
 //        addSubview(coverView)
 //        addSubview(likeIconView)
 //        addSubview(likeNumberView)
-        addSubview(titleView)
+        print("cell frame: \(frame)")
+        
+        contentView.addSubview(titleView)
         titleView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -198,6 +206,16 @@ fileprivate class ForYouCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+//        titleView.snp.remakeConstraints { make in
+//            make.edges.equalToSuperview()
+//        }
+        contentView.setNeedsLayout()
+        contentView.layoutIfNeeded()
+        print("sth \(titleView.text) \(contentView.frame.size)")
     }
     
     func setData(_ data: ForYouItem) {
