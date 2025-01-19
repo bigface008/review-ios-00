@@ -1,0 +1,52 @@
+# Xcode specific
+.DS_Store
+build/
+DerivedData/
+*.xcworkspace/
+*.xccheckout
+*.xcuserstate
+*.xcscmblueprint
+
+# Swift Package Manager
+/.swiftpm
+Package.resolved
+
+# CocoaPods dependencies
+Pods/
+Podfile.lock
+
+# Carthage dependencies
+Carthage/
+Carthage/Checkouts
+Carthage/Build
+
+# Fastlane (CI/CD secrets)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+fastlane/.env
+
+# Certificates & Provisioning Profiles (Sensitive Files)
+*.mobileprovision
+*.cer
+*.p12
+*.xcconfig
+
+# Firebase & Google Services (Sensitive API keys)
+GoogleService-Info.plist
+
+# Environment Variables
+.env
+.env.local
+
+# Logs & Crash Reports
+*.log
+*.crash
+
+# Editor & OS-specific files
+*.swp
+*.swo
+*~
+*lock.json
+Thumbs.db
